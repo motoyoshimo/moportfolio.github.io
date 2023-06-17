@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>タイトル</title>
+<link href="../css/reset.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300&display=swap" rel="stylesheet">
+
+<!--jQuery本体-->
+<script src="../js/jquery-1.11.2.min.js"></script>
+
+<!--即時関数-->
+
+<script>
+    $(function() {
+    // スクロールイベント
+      $(window).scroll(function() {
+        // フェードアニメーションを呼び出す
+        fadeAnime();
+      });
+      
+      // フェードアニメーションの設定
+      function fadeAnime() {
+        // .fadeUpTriggerが付いた要素に対して
+        $('.fadeUpTrigger').each(function() {
+          // 縦位置を取得し-50pxして、変数targetに代入する
+          let target = $(this).offset().top -= 50;
+          // スクロール量を取得し、変数scrollに代入する
+          let scroll = $(window).scrollTop();
+          // 表示画面の高さを取得し、変数windowHeightに代入する
+          let windowHeight = $(window).height();
+    
+          // 要素の縦位置から表示画面の高さ+200pxを引いた数字よりscrollのほうが大きい場合
+          if(scroll > target - windowHeight + 200) {
+            // .fadeUpを追加する
+            $(this).addClass('fadeUp');
+          } else {
+            // そうでない場合は.fadeUpを削除する
+            $(this).removeClass('fadeUp');
+          }
+        });
+      };    
+    });
+    </script>
+  
+  <!-- ハンバーガー -->
+  <script>
+      var open = false;
+      
+      function Drop(n) {
+        var i;
+        if (open == false) {
+          for (i = n; i < 5; i++) {
+            Drp(i)
+          }
+          open = true
+        } else if (open == true) {
+          for (i = n; i < 5; i++) {
+            Cls(i)
+          }
+          open = false
+        }
+      }
+      
+      function Drp(n) {
+        var elem = document.getElementsByClassName("menu-con")[n];
+        var pos = -1 * window.innerHeight - n * 100;
+        var id = setInterval(frame, 5);
+      
+        function frame() {
+          if (pos >= -10) {
+            clearInterval(id);
+            elem.style.top = 0 + 'px';
+          } else {
+            pos += 10;
+            elem.style.top = pos + 'px';
+          }
+        }
+      }
+      
+      function Cls(n) {
+        var elems = document.getElementsByClassName("menu-con")[n];
+        var poss = 0;
+        var ids = setInterval(frames, 5);
+      
+        function frames() {
+          if (poss <= -1 * window.innerHeight) {
+            clearInterval(ids);
+            elems.style.top = -1 * window.innerHeight + 'px';
+          } else {
+            poss += -7 - n * 2;
+            elems.style.top = poss + 'px';
+          }
+        }
+      }
+    
+      </script>
+
+</head>
+
+<body>
+
+    
+  <div class="top_mein_img">
+
+
+    <div class="menu-icon" onclick="this.classList.toggle('hover');Drop(0)">
+        <div class="menu-bar menu-bar1"></div>
+        <div class="menu-bar menu-bar2"></div>
+        <div class="menu-bar menu-bar3"></div>
+      </div>
+      <div class="menu">
+        <div class="menu-con" style="background:rgb(160,160,170);"><a href="../index.html"><p>HOME</p></a></div>  
+        <div class="menu-con" style="background:rgb(213, 118, 118);"><a href="../webdesign/index.html"> <p>WEB　DESING</p></a></div>
+         <div class="menu-con" style="background:rgb(73, 83, 78);"><a href="../graphicdesing01/index.html"><p>GRAPHIC　DESING#01</p></a></div> 
+         <div class="menu-con" style="background:rgb(153, 220, 220);"><a href="../graphicdesing02/index.html"><p>GRAPHIC　DESING#02</p></a></div> 
+        <!-- <div class="menu-con" style="background:rgb(70,70,70);"><p>CONTACT</p></div> -->
+      </div>
+
+              <div class="graphicdesing_ttl">
+                <h2 class="flowing">GRAPHIC DESING</h2>
+                <p class="flowing">リーフレット企画および制作</p>
+              </div>
+
+              <div class="graphicdesing_01_wrap">
+                <img src="../img/yotsuori01.png" width="1128" height="280" alt="四つ折りリーフレット">
+              </div>
+              <div class="graphicdesing_02_wrap">
+                <img src="../img/yotsuori02.png" width="1128" height="280" alt="四つ折りリーフレット">
+              </div>
+
+
+              <div class="graphicdesing_text">
+                <p>タイトル : 蒜餃子(HIRUGYOZA)</p>
+                    <p>ターゲット : 20代半ば男性　餃子好きで色々な餃子屋さんを一人で開拓している</p>
+                    <p>ペルソナ : IT企業やスタートアップ企業に勤める　落ち着いたタイプの独身男性</p>
+                    <p>コンバージョン : お店の周知　来店</p>
+                    <div class="graphicdesing_text_01">
+                        <p>餃子屋さんの四つ折りリーフレットを制作しました。落ち着いた雰囲気を出すために全体のメインカラーは黒で、<br>モノトーンな印象でアクセントにビールの配色として黄色を使用しています。最小限に情報量を抑えて説明と画像をバランスよく取り入れました。</p>
+                    </div>
+                    <div class="graphicdesing_text_02">
+                        <p>企画時間：1h</p>
+                        <p>制作時間：7h</p>
+                        <p>制作時期：2022年12月</p>
+                        <p>担当箇所：企画　立案　構成　デザイン</p>
+                    </div>
+                
+              </div>
+              <div class="graphicdesing_03_wrap">
+                <img src="../img/yotsuori03.png" width="1171" height="1021" alt="四つ折りリーフレットモックアップ">
+              </div>
+
+              <div class="footer">
+          
+              </div>
+
+
+
+
+
+</body>
+
+</html>

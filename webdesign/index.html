@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>タイトル</title>
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300&display=swap" rel="stylesheet">
+
+<!--jQuery本体-->
+<script src="../js/jquery-1.11.2.min.js"></script>
+
+<!--即時関数-->
+
+<script>
+  $(function() {
+  // スクロールイベント
+    $(window).scroll(function() {
+      // フェードアニメーションを呼び出す
+      fadeAnime();
+    });
+    
+    // フェードアニメーションの設定
+    function fadeAnime() {
+      // .fadeUpTriggerが付いた要素に対して
+      $('.fadeUpTrigger').each(function() {
+        // 縦位置を取得し-50pxして、変数targetに代入する
+        let target = $(this).offset().top -= 50;
+        // スクロール量を取得し、変数scrollに代入する
+        let scroll = $(window).scrollTop();
+        // 表示画面の高さを取得し、変数windowHeightに代入する
+        let windowHeight = $(window).height();
+  
+        // 要素の縦位置から表示画面の高さ+200pxを引いた数字よりscrollのほうが大きい場合
+        if(scroll > target - windowHeight + 200) {
+          // .fadeUpを追加する
+          $(this).addClass('fadeUp');
+        } else {
+          // そうでない場合は.fadeUpを削除する
+          $(this).removeClass('fadeUp');
+        }
+      });
+    };    
+  });
+  </script>
+
+<!-- ハンバーガー -->
+<script>
+    var open = false;
+    
+    function Drop(n) {
+      var i;
+      if (open == false) {
+        for (i = n; i < 5; i++) {
+          Drp(i)
+        }
+        open = true
+      } else if (open == true) {
+        for (i = n; i < 5; i++) {
+          Cls(i)
+        }
+        open = false
+      }
+    }
+    
+    function Drp(n) {
+      var elem = document.getElementsByClassName("menu-con")[n];
+      var pos = -1 * window.innerHeight - n * 100;
+      var id = setInterval(frame, 5);
+    
+      function frame() {
+        if (pos >= -10) {
+          clearInterval(id);
+          elem.style.top = 0 + 'px';
+        } else {
+          pos += 10;
+          elem.style.top = pos + 'px';
+        }
+      }
+    }
+    
+    function Cls(n) {
+      var elems = document.getElementsByClassName("menu-con")[n];
+      var poss = 0;
+      var ids = setInterval(frames, 5);
+    
+      function frames() {
+        if (poss <= -1 * window.innerHeight) {
+          clearInterval(ids);
+          elems.style.top = -1 * window.innerHeight + 'px';
+        } else {
+          poss += -7 - n * 2;
+          elems.style.top = poss + 'px';
+        }
+      }
+    }
+  
+    </script>
+    
+
+</head>
+
+<body>
+
+  <div class="top_mein_img">
+
+
+    <div class="menu-icon" onclick="this.classList.toggle('hover');Drop(0)">
+        <div class="menu-bar menu-bar1"></div>
+        <div class="menu-bar menu-bar2"></div>
+        <div class="menu-bar menu-bar3"></div>
+      </div>
+      <div class="menu">
+        <div class="menu-con" style="background:rgb(160,160,170);"><a href="../index.html"><p>HOME</p></a></div>  
+        <div class="menu-con" style="background:rgb(213, 118, 118);"><a href="../webdesign/index.html"> <p>WEB　DESING</p></a></div>
+         <div class="menu-con" style="background:rgb(73, 83, 78);"><a href="../graphicdesing01/index.html"><p>GRAPHIC　DESING#01</p></a></div> 
+         <div class="menu-con" style="background:rgb(153, 220, 220);"><a href="../graphicdesing02/index.html"><p>GRAPHIC　DESING#02</p></a></div> 
+        <!-- <div class="menu-con" style="background:rgb(70,70,70);"><p>CONTACT</p></div> -->
+      </div>
+
+   
+
+
+              <div class="webdesign_ttl">
+                <h2 class="flowing">WEB DESING</h2>
+                <p class="flowing">WEBサイト企画および制作</p>
+                </div>
+
+              <article>         
+              <div class="fadeUpTrigger itemBox">
+              <div class="webdesign_01_wrap">
+                <div class="webdesign_01_img">
+                    <p>#01</p>
+                    <img src="../img/p01.png" width="338" height="1127" alt="椅子のwebサイト">
+                </div>
+                <div class="webdesign_01_text">
+                    <p>タイトル : Global Desingers Shop</p>
+                    <p>ターゲット : おしゃれな30代半ばの独身女性</p>
+                    <p>ペルソナ : 都内ひとり暮らしの感度の高い女性　人と一緒のモノを好まない<br>
+                      <br>インテリアが好きでデザインに拘りがある</p>
+                    <p>コンバージョン : お店の周知</p>
+
+                    <div class="webdesign_01_text_01">
+                        <p>ターゲット層の洗礼された30代に寄せて、サイト全体の配色を<br>落ち着いた色味で、なるべく感覚で見てもらえるようなサイトにする為に文字量は減らして、<br>画像を多く使いお店の雰囲気を一目でわかるようなデザインを意識しました。</p>
+                    </div>
+                    <div class="webdesign_01_text_02">
+                        <p>企画時間：2.5h</p>
+                        <p>制作時間：4h</p>
+                        <p>制作時期：2023年1月</p>
+                        <p>担当箇所：企画　立案　構成　デザイン</p>
+                    </div>
+                </div>
+              </div>
+              </div>
+              
+              <div class="fadeUpTrigger itemBox">
+              <div class="webdesign_02_wrap">
+                <div class="webdesign_02_img">
+                  <p>#02</p>
+                  <img src="../img/p02.png" width="339" height="990" alt="指輪のサイト">
+                </div>
+
+                <div class="webdesign_02_text">
+                    <p>タイトル : TOWA JAPAN</p>
+                    <p>ターゲット : 30代前半　婚約中の恋人　新婚夫婦</p>
+                    <p>ペルソナ : 神前式で式をあげるような、和のテイストが好み真面目でこだわりの強い　</p>
+                    <p>デザインコンセプト : 商品価格は比較的に安価で親しみやすい、和で洗礼されたデザイン</p>
+                    <p>コンバージョン : お店の周知</p>
+
+                    <div class="webdesign_02_text_01">
+                        <p>ターゲット層の洗礼された30代に向けたサイトになるように、<br>和テイストに意識しながら色合いやフォントを選びました。</p>
+                    </div>
+                    <div class="webdesign_02_text_02">
+                        <p>企画時間：2.5h</p>
+                        <p>制作時間：4h</p>
+                        <p>制作時期：2023年1月</p>
+                        <p>担当箇所：企画　立案　構成　デザイン</p>
+                    </div>
+                </div>
+              </div>
+              </div>
+
+              <div class="fadeUpTrigger itemBox">
+              <div class="webdesign_03_wrap">
+                <div class="webdesign_03_img">
+                  <p>#03</p>
+                  <img src="../img/p03.png" width="335" height="2550" alt="シャンプーのLPサイト">
+                </div>
+
+                <div class="webdesign_03_text">
+                    <p>タイトル : Organ hair</p>
+                    <p>ターゲット : 20代半ばから30歳の美容にこだわりある女性</p>
+                    <p>ペルソナ : 素材にこだわりを持ち、エコ気質な女性</p>
+                    <p>デザインコンセプト : 爽やかでオーガニックな雰囲気　女性のマス層、万人受けのデザイン</p>
+                    <p>コンバージョン : サンプル賞品の申込み<br>
+                      <br>
+                      （Instagram、Twitterに投稿で抽選30名様限定で新商品プレゼントキャンペーン）</p>
+
+                    <div class="webdesign_03_text_01">
+                        <p>既存ブランドから新商品シャンプーのLPサイトを制作しました。<br>オーガニックシャンプーの点を意識して、カラー設定はメインの<br>カラーを淡いグリーンにし、他には、植物の画像を取り入れて<br>感覚的に見て「オーガニック」とわかりやすい雰囲気を出しました。<br>文字のフォントも女性に向け、柔らかい印象を意識しています。</p>
+                    </div>
+                    <div class="webdesign_03_text_02">
+                        <p>企画時間：6h</p>
+                        <p>制作時間：36h</p>
+                        <p>制作時期：2023年3月</p>
+                        <p>担当箇所：企画　立案　構成　デザイン</p>
+                    </div>
+                </div>
+              </div>
+              </div>
+
+              <div class="fadeUpTrigger itemBox">
+              <div class="webdesign_04_wrap">
+                <div class="webdesign_04_img">
+                  <p>#04</p>
+                  <img src="../img/kenchiku.png" width="691" height="447" alt="建築会社リクルートのサイト">
+                  <p class="url">URL:<a href="../個人制作_v04/index.html">xd641885.html.xdomain.jp</a></p>
+                
+                  <img src="../img/p04_1.png" width="500" height="310" alt="建築会社リクルートのサイトモックアップ">
+                </div>
+
+                <div class="webdesign_04_text">
+                    <p>タイトル : ICY株式会社</p>
+                    <p>ターゲット : 18歳から24歳くらいの就職活動中の新卒の男性・女性</p>
+                    <p>ペルソナ : 建築関係の専門、大学を卒業している<br>
+                      <br>建築関係の仕事に興味があり、就職活動中</p>
+                    <p>デザインコンセプト : 安心感がある中で、新卒向けである為<br>
+                      <br>誠実さ、スタイリッシュさを感じつつ固くなりすぎないデザイン　</p>
+                    <p>コンバージョン : 会社ENTRY<br>
+                      <br>
+                      </p>
+
+                    <div class="webdesign_04_text_01">
+                        <p>新卒向けリクルートサイトを制作しました。<br>男性の就活生が8割くらいを占める会社として、男性向けに<br>力強い印象を心かけて、フォントやフォントサイズなど<br>雰囲気にあうように設定しました。</p>
+                    </div>
+                    <div class="webdesign_04_text_02">
+                        <p>企画時間：7h</p>
+                        <p>制作時間：40h</p>
+                        <p>制作時期：2023年4月</p>
+                        <p>担当箇所：企画　立案　構成　デザイン</p>
+                    </div>
+
+                </div>
+               
+              </div>
+              </div>
+
+
+
+              <div class="fadeUpTrigger itemBox">
+              <div class="webdesign_05_wrap">
+                <div class="webdesign_05_img">
+                  <p>#05</p>
+                  <img src="../img/numberplate.png" width="691" height="447" alt="建築会社リクルートのサイト">
+                  <p class="url">URL:<a href="../cording_all/index.html">dameguro.html.xdomain.jp</a></p>
+                </div>
+
+                <div class="webdesign_05_text">
+                    <p>タイトル : アメリカンナンバープレートショー</p>
+                    <p>ターゲット : 1970年生まれの第2次ベビーブーム世代を中心にその親世代や<br>
+                      <br>子世代と共に古き良きアメリカを体感したいと思っているファミリー</p>
+                    <p>ペルソナ : アメリカの影響を受けている第1次ベビーブーム世代を親に持っている。<br>
+                      <br>自分もアメリカンポップを好み、親→自分→子と3世代でアメリカンクラッシックを<br>
+                      <br>堪能したいと思っている。</p>
+                    <p>デザインコンセプト : 爽やかでオーガニックな雰囲気　女性のマス層、万人受けのデザイン</p>
+                    <p>コンバージョン : サンプル賞品の申込み<br>
+                      <br>
+                      （Instagram、Twitterに投稿で抽選30名様限定で新商品プレゼントキャンペーン）</p>
+
+                    <div class="webdesign_05_text_01">
+                        <p>既存ブランドから新商品シャンプーのLPサイトを制作しました。<br>オーガニックシャンプーの点を意識して、カラー設定はメインの<br>カラーを淡いグリーンにし、他には、植物の画像を取り入れて<br>感覚的に見て「オーガニック」とわかりやすい雰囲気を出しました。<br>文字のフォントも女性に向け、柔らかい印象を意識しています。</p>
+                    </div>
+                    <div class="webdesign_05_text_02">
+                        <p>企画時間：10h</p>
+                        <p>制作時間：16h</p>
+                        <p>制作時期：2023年5月</p>
+                        <p>担当箇所：企画　立案　構成　デザイン</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（訓練校グループ制作）</p>
+                    </div>
+                </div>
+              </div>
+              </div>
+
+              </article>
+
+              <div class="footer">
+          
+              </div>
+
+    
+ </div>
+</body>
+
+</html>
